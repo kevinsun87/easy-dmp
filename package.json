@@ -8,11 +8,6 @@
     "dev": "vite",
     "test": "vite --mode test"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
