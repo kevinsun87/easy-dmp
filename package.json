@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky init",
     "dev": "vite",
     "test": "vite --mode test"
   },
