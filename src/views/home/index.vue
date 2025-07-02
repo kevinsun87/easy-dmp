@@ -11,8 +11,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useInitStore } from '@/store/init/index'
 import { ref } from 'vue'
+import { useInitStore } from '@/store/init/index'
+import $http from '@/http/request'
 let count = ref(1)
 const init = useInitStore()
 init.a++
@@ -35,4 +36,9 @@ const openMessage = () => {
     type: 'success',
   })
 }
+const data = { username: 'admin', password: 'admin'}
+$http.post('/mock/api/user', data).then((res) => {
+  console.log(res.data)
+}) 
+
 </script>
