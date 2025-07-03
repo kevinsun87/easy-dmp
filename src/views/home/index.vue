@@ -38,7 +38,7 @@ const openMessage = () => {
 }
 const data = { username: 'admin', password: 'admin'}
 $http.post('/mock/api/user', data).then((res) => {
-  console.log(res.data)
+  console.log(res, res.data)
 }) 
 
 </script>
