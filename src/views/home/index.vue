@@ -14,9 +14,13 @@
 import { ref } from 'vue'
 import { useInitStore } from '@/store/init/index'
 import $http from '@/http/request'
+import axios from 'axios'
 let count = ref(1)
 const init = useInitStore()
 init.a++
+
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 
 setTimeout(() => {
     init.$patch({
@@ -37,8 +41,16 @@ const openMessage = () => {
   })
 }
 const data = { username: 'admin', password: 'admin'}
-$http.post('/mock/api/user', data).then((res) => {
+$http.post('/mock/api/user', data, {
+  cancelToken: source.token
+}).then((res) => {
   console.log(res, res.data)
-}) 
+})
+
+// setTimeout(() => {
+//   source.cancel('Operation canceled by the user.');
+// }, 8000)
+
+
 
 </script>

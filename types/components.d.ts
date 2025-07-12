@@ -11,7 +11,6 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     IconEpDocumentAdd: typeof import('~icons/ep/document-add')['default']
-    IconEpEdit: typeof import('~icons/ep/edit')['default']
     IconEpPlus: typeof import('~icons/ep/plus')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
