@@ -13,7 +13,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useInitStore } from '@/store/init/index'
-import $http from '@/http/request'
+import { post } from '@/http/request'
+import type { BaseResponse } from '@/http/request'
 import axios from 'axios'
 let count = ref(1)
 const init = useInitStore()
@@ -41,12 +42,24 @@ const openMessage = () => {
   })
 }
 const data = { username: 'admin', password: 'admin'}
-$http.post('/mock/api/user', data, {
+interface ILoginRequest {
+  username: string
+  password: string
+}
+
+interface ILoginResponse {
+  username: string
+  roles: string[]
+  accessToken: string
+}
+
+post<BaseResponse<ILoginResponse>, ILoginRequest>('/mock/api/user', data, {
   cancelToken: source.token
 }).then((res) => {
-  console.log(res, res.data)
+  console.log(res, res.data, '123')
 })
 
+// source.cancel('Operation canceled by the user.');
 // setTimeout(() => {
 //   source.cancel('Operation canceled by the user.');
 // }, 8000)

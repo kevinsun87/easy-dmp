@@ -1,5 +1,5 @@
 {
-  "name": "DMP",
+  "name": "easy-dmp",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
